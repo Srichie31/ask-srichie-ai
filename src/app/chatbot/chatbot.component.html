@@ -21,7 +21,7 @@
         <div
           [ngClass]="{
             'bg-primary text-white p-4 shadow-sm': message.sender === 'user',
-            'text-dark w-75': message.sender !== 'user'
+            'text-dark w-100': message.sender !== 'user'
           }"
           class="py-2 rounded-start-5 rounded-bottom-5"
         >
@@ -80,7 +80,7 @@
             rows="1"
             style="resize: none; max-height: 150px; overflow-y: hidden"
           ></textarea>
-          <div class="d-flex search-btns justify-content-between w-75 mt-2">
+          <div class="d-flex search-btns justify-content-between w-100 mt-2">
             <button
               class="btn btn-outline-dark rounded-circle p-3"
               type="button"
