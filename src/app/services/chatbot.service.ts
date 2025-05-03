@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ChatbotService {
 
-  private apiUrl = 'http://localhost:3000/chat';  // Backend API URL
+  private apiUrl = 'https://chatbot-backend-lyart-omega.vercel.app/chat';  // Backend API URL
 
   constructor(private http: HttpClient) { }
 
