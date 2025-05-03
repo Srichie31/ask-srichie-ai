@@ -1,0 +1,111 @@
+<div class="d-flex flex-column" style="height: 100dvh">
+  <div class="shadow-sm">
+    <app-header></app-header>
+  </div>
+
+  <div
+    *ngIf="messages.length > 0"
+    #scrollContainer
+    class="d-flex justify-content-center flex-grow-1 overflow-auto chat-box"
+    style="scroll-behavior: smooth"
+  >
+    <div class="flex-column px-3 py-0 w-100" style="width: 100%; max-width: 768px">
+      <div
+        *ngFor="let message of messages"
+        class="d-flex align-items-center my-2"
+        [ngClass]="{
+          'justify-content-end': message.sender === 'user',
+          'justify-content-start': message.sender !== 'user'
+        }"
+      >
+        <div
+          [ngClass]="{
+            'bg-primary text-white p-4 shadow-sm': message.sender === 'user',
+            'text-dark w-75': message.sender !== 'user'
+          }"
+          class="py-2 rounded-start-5 rounded-bottom-5"
+        >
+          <markdown
+            lineNumbers
+            [lineOffset]="5"
+            [data]="message.text"
+          ></markdown>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="messages.length == 0"
+    class="p-3 py-2 flex-grow-1 d-flex align-items-center justify-content-center w-100 text-center"
+    style="position: sticky; bottom: 0; z-index: 10"
+  >
+    <h5 class="w-100" style="width: 100%; max-width: 768px">
+      Welcome! I'm your friendly chatbot, <br />
+      built using Google's Gemini. I'm ready to chat and help you out. Feel free
+      to type your questions or requests below!
+    </h5>
+  </div>
+  <!-- <div
+    *ngIf="messages.length == 0"
+    class="p-3 py-2 d-flex align-items-center justify-content-center w-75"
+    style="position: sticky; bottom: 0; z-index: 10"
+  >
+    <div class="d-flex w-75 g-0 gap-2">
+      <div *ngFor="let input of inputs" class="w-75">
+        <div
+          class="d-flex flex-column align-items-start p-3 bg-opacity-25 px-4 justify-content-center bg-primary shadow-sm rounded-5"
+          type="button"
+        >
+          <h6 class="fw-bold">{{input.main}}</h6>
+          <h6>{{input.sub}}</h6>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="p-3 pt-0" style="position: sticky; bottom: 0; z-index: 10">
+    <div class="d-flex justify-content-center">
+      <div
+        class="chat-input-container rounded-5 shadow-sm w-100 bg-light p-3"
+        style="width: 100%; max-width: 768px"
+      >
+        <form class="d-flex flex-column align-items-end bg-transparent">
+          <textarea
+            class="form-control"
+            [(ngModel)]="userMessage"
+            name="message"
+            placeholder="Don’t be shy, ask anything!"
+            #textArea
+            (keydown)="handleKeyDown($event)"
+            (input)="autoGrow(textArea)"
+            rows="1"
+            style="resize: none; max-height: 150px; overflow-y: hidden"
+          ></textarea>
+          <div class="d-flex search-btns justify-content-between w-75 mt-2">
+            <button
+              class="btn btn-outline-dark rounded-circle p-3"
+              type="button"
+            >
+              <i class="bi bi-plus h4 mb-0"></i>
+            </button>
+            <div class="d-flex gap-2">
+              <button
+                class="btn btn-outline-dark rounded-circle p-3"
+                type="button"
+              >
+                <i class="bi bi-mic"></i>
+              </button>
+              <button
+                class="btn btn-dark text-white rounded-circle p-3"
+                type="submit"
+                [disabled]="!userMessage.trim()"
+                (click)="sendMessage()"
+              >
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

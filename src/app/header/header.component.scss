@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
+svg {
+
+  width: 28px;
+  overflow: visible;
+}
+
+.svg path {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.title {
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.title:is(:hover) .svg path {
+  animation: pop 0.5s var(--d);
+}
+
+@keyframes pop {
+  50% {
+    scale: var(--s, 1);
+    rotate: var(--r, 0deg);
+  }
+}
+
+svg path:nth-of-type(1) {
+  --d: 0.24s;
+  --r: 20deg;
+  --s: 1.5;
+}
+svg path:nth-of-type(2) {
+  --d: 0.12s;
+  --r: 10deg;
+  --s: 1.4;
+}
+svg path:nth-of-type(3) {
+  --d: 0s;
+  --r: 0deg;
+  --s: 1.25;
+}

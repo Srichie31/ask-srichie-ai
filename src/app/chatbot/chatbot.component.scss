@@ -1,0 +1,57 @@
+markdown {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+p {
+  margin-bottom: 0 !important;
+  
+}
+
+textarea.form-control {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0rem 0.5rem;
+  transition: none;
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+  color: #000000; /* or white if using dark background */
+}
+
+.search-btns button {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
+}
+.icn {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+textarea.form-control:focus,
+textarea.form-control:hover {
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+.chat-input-container {
+  border: 4px solid transparent;
+  background: linear-gradient(
+    135deg,
+    rgb(218, 232, 247) 0%,
+    rgb(214, 229, 247) 100%
+  );
+}
+.chat-input-container:focus-within {
+  border: 4px solid #007bff;
+}

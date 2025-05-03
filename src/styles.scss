@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+app-input-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+.chat-scroll-wrapper {
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  align-items: center;
+  -ms-overflow-style: none; /* IE 10+ */
+  background: #c9d6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #e2e2e2,
+    #c9d6ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #e2e2e2,
+    #c9d6ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.chat-scroll-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+.chat-box {
+  scrollbar-gutter: stable overlay;
+  
+  
+  &::-webkit-scrollbar {
+
+    width: 8px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: #6dd5ed; /* fallback for old browsers */
+  }
+
+  /* Always have a thin transparent track for alignment */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+markdown p {
+  margin: 0 auto;
+}
+
+/* Scrollable code block with padding and clean background */
+pre {
+  background-color: #0d1117; /* Dark GPT-style background */
+  color: #c9d1d9;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  font-family: "Fira Code", monospace;
+  margin-bottom: 1rem;
+
+  code {
+    background: none;
+  }
+}
+
+/* Inline code */
+code {
+  background-color: rgba(110, 118, 129, 0.4);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+}
+
+markdown pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* This ensures code inside markdown blocks wraps properly */
+markdown pre,
+markdown pre code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-x: auto;
+}
+@media (max-width: 575.98px) {
+  .chat-box {
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+
+  .chat-box::-webkit-scrollbar {
+    display: none;            /* Chrome, Safari, Opera */
+  }
+}
