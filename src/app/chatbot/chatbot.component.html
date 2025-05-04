@@ -6,10 +6,13 @@
   <div
     *ngIf="messages.length > 0"
     #scrollContainer
-    class="d-flex justify-content-center flex-grow-1 overflow-auto chat-box"
+    class="d-flex justify-content-center flex-grow-1 overflow-auto chat-box px-3"
     style="scroll-behavior: smooth"
   >
-    <div class="flex-column px-3 py-0 w-100" style="width: 100%; max-width: 768px">
+    <div
+      class="flex-column px-0 py-0 w-100 "
+      style="width: 100%; max-width: 768px"
+    >
       <div
         *ngFor="let message of messages"
         class="d-flex align-items-center my-2"
@@ -39,33 +42,14 @@
     class="p-3 py-2 flex-grow-1 d-flex align-items-center justify-content-center w-100 text-center"
     style="position: sticky; bottom: 0; z-index: 10"
   >
-    <h5 class="w-100" style="width: 100%; max-width: 768px">
-      Welcome! I'm your friendly chatbot, <br />
-      built using Google's Gemini. I'm ready to chat and help you out. Feel free
-      to type your questions or requests below!
+    <h5 class="w-100 fs-4 info" style="width: 100%; max-width: 768px">
+      Hey Human! <br> <span class="fw-normal">How can I assist you today?</span>
     </h5>
   </div>
-  <!-- <div
-    *ngIf="messages.length == 0"
-    class="p-3 py-2 d-flex align-items-center justify-content-center w-75"
-    style="position: sticky; bottom: 0; z-index: 10"
-  >
-    <div class="d-flex w-75 g-0 gap-2">
-      <div *ngFor="let input of inputs" class="w-75">
-        <div
-          class="d-flex flex-column align-items-start p-3 bg-opacity-25 px-4 justify-content-center bg-primary shadow-sm rounded-5"
-          type="button"
-        >
-          <h6 class="fw-bold">{{input.main}}</h6>
-          <h6>{{input.sub}}</h6>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <div class="p-3 pt-0" style="position: sticky; bottom: 0; z-index: 10">
-    <div class="d-flex justify-content-center">
+  <div class="p-3 pb-md-1 pt-1  " style="position: sticky; bottom: 0; z-index: 10">
+    <div class="d-flex justify-content-center flex-column align-items-center">
       <div
-        class="chat-input-container rounded-5 shadow-sm w-100 bg-light p-3"
+        class="chat-input-container rounded-5 shadow-sm w-100 p-3"
         style="width: 100%; max-width: 768px"
       >
         <form class="d-flex flex-column align-items-end bg-transparent">
@@ -106,6 +90,7 @@
           </div>
         </form>
       </div>
+      <p class="pb-0 pt-1 d-none d-md-block  text-body-secondary" style="font-size: small;">powered by Google Gemini</p>
     </div>
   </div>
 </div>
