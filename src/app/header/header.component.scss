@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
 svg {
-
   width: 28px;
   overflow: visible;
 }
@@ -16,6 +15,19 @@ svg {
 }
 .title:is(:hover) .svg path {
   animation: pop 0.5s var(--d);
+}
+.title {
+  color: #232526; /* fallback for old browsers */
+  color: -webkit-linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  color: linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 @keyframes pop {
