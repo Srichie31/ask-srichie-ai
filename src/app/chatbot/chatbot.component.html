@@ -1,5 +1,5 @@
 <div class="d-flex flex-column" style="height: 100dvh">
-  <div class="shadow-sm">
+  <div class="">
     <app-header></app-header>
   </div>
 
@@ -23,7 +23,7 @@
       >
         <div
           [ngClass]="{
-            'bg-primary text-white p-4 shadow-sm': message.sender === 'user',
+            'bg-primary text-white p-3 shadow-sm': message.sender === 'user',
             'text-dark w-100': message.sender !== 'user'
           }"
           class="py-2 rounded-start-5 rounded-bottom-5"
@@ -36,6 +36,7 @@
         </div>
       </div>
     </div>
+    <div class="chat-spacer"></div>
   </div>
   <div
     *ngIf="messages.length == 0"
